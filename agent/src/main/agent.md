@@ -13,3 +13,36 @@
 举个例子来说明代理的作用:假设我们想邀请一位明星,那么并不是直接连接明星,而是联系明星的经纪人,来达到同样的目的.明星就是一个目标对象,他只要负责活动中的节目,而其他琐碎的事情就交给他的代理人(经纪人)来解决.这就是代理思想在现实中的一个例子
 
 ![Image text](https://raw.githubusercontent.com/eatyu/javaMybatis/master/agent/src/main/790334-20170116124522880-1137330008.png)
+
+
+##1.1.静态代理
+静态代理在使用时,需要定义接口或者父类,被代理对象与代理对象一起实现相同的接口或者是继承相同父类.
+
+下面举个案例来解释:
+模拟保存动作,定义一个保存动作的接口:IUserDao.java,然后目标对象实现这个接口的方法UserDao.java,此时如果使用静态代理方式,就需要在代理对象(UserDaoProxy.java)中也实现IUserDao接口.调用的时候通过调用代理对象的方法来调用目标对象.
+需要注意的是,代理对象与目标对象要实现相同的接口,然后通过调用相同的方法来调用目标对象的方法
+
+>示例代码 在staticproxy包内
+
+
+##1.2.动态代理
+动态代理有以下特点:
+1.代理对象,不需要实现接口
+2.代理对象的生成,是利用JDK的API,动态的在内存中构建代理对象(需要我们指定创建代理对象/目标对象实现的接口的类型)
+3.动态代理也叫做:JDK代理,接口代理
+
+JDK中生成代理对象的API
+代理类所在包:java.lang.reflect.Proxy
+JDK实现代理只需要使用newProxyInstance方法,但是该方法需要接收三个参数,完整的写法是:
+
+static Object newProxyInstance(ClassLoader loader, Class<?>[] interfaces,InvocationHandler h )
+注意该方法是在Proxy类中是静态方法,且接收的三个参数依次为:
+
+>ClassLoader loader,:指定当前目标对象使用类加载器,获取加载器的方法是固定的  
+>
+>Class<?>[] interfaces,:目标对象实现的接口的类型,使用泛型方式确认类型  
+>
+>InvocationHandler h:事件处理,执行目标对象的方法时,会触发事件处理器的方法,会把当前执行目标对象的方法作为参数传入  
+
+
+>示例代码 在dynamicproxy包内
