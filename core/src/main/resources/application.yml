@@ -1,0 +1,24 @@
+#spring.aop.proxy-target-class=true
+#当前项目部署的端口
+
+server:
+  port: 8080
+#当前项目名字
+spring:
+  application:
+    name: service-user
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/jmybatis?tinyInt1isBit=false&useUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: root
+
+    druid:
+      initial-size: 5   #连接池配置
+      max-active: 100
+      max-wait: 5000
+
+mybatis:
+  mapper-locations: classpath:mapper/**/*.xml
+#  type-aliases-package: com.jmybatis.core.entity
