@@ -9,16 +9,33 @@ spring:
     name: service-user
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/jmybatis?tinyInt1isBit=false&useUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&zeroDateTimeBehavior=convertToNull
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/jmybatis?tinyInt1isBit=false&useUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&zeroDateTimeBehavior=convertToNull&serverTimezone=GMT%2B8
     username: root
     password: root
-
-    druid:
-      initial-size: 5   #连接池配置
-      max-active: 100
-      max-wait: 5000
+    initial-size: 10 #配置初始化大小、最小、最大
+    minIdle: 10
+    maxActive: 50
+    maxWait: 60000 #配置获取连接等待超时的时间
+    timeBetweenEvictionRunsMillis: 60000 #配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+    minEvictableIdleTimeMillis: 300000 #配置一个连接在池中最小生存的时间，单位是毫秒
+    validationQuery: select 1
+    testWhileIdle: true
+    testOnBorrow: true
+    testOnReturn: true
+    connectionInitSql: select 1
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
 
 mybatis:
   mapper-locations: classpath:mapper/**/*.xml
+  config-location: classpath:mybatis-config.xml
 #  type-aliases-package: com.jmybatis.core.entity
+
+
+#logging:
+# path: /log
+# file: springbootdemo.log
+# pattern:
+#  console: '%d{yyyy/MM/dd-HH:mm:ss} [%thread] %-5level %logger- %msg%n'
+#  file: '%d{yyyy/MM/dd-HH:mm} [%thread] %-5level %logger- %msg%n'
