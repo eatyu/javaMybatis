@@ -28,13 +28,17 @@ public class LogInterceptor implements Interceptor {
 
     @Override
     public Object intercept(Invocation invocation) throws Throwable {
-        logger.info("%%% intercept");
-        return invocation.proceed();
+        long start = System.currentTimeMillis();
+        try {
+            return invocation.proceed();
+        } finally {
+            logger.info("   duration time = {}ms",System.currentTimeMillis() - start);
+        }
+
     }
 
     @Override
     public Object plugin(Object target) {
-        logger.info("%%% plugin");
         return target instanceof StatementHandler ? Plugin.wrap(target, this) : target;
     }
 
