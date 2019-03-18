@@ -13,10 +13,10 @@
 
 
 整个代理对象生成过程可以用如下时序图表示  
-![Image text](https://raw.githubusercontent.com/eatyu/javaMybatis/master/core/src/img/1352849-20180729204649421-1202779896.png)
+![Image text](https://raw.githubusercontent.com/eatyu/javaMybatis/master/core/src/img/2018112418124956.png)
 
 查询阶段的时序图  
-![Image text](https://raw.githubusercontent.com/eatyu/javaMybatis/master/core/src/img/1352849-20180729204649421-1202779896.png)
+![Image text](https://raw.githubusercontent.com/eatyu/javaMybatis/master/core/src/img/20181124181343659.png)
 
 
 
