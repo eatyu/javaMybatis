@@ -1,5 +1,6 @@
 参考资料 https://blog.csdn.net/qq_41534566/article/details/79088129
-
+    https://blog.csdn.net/lchpersonal521/article/details/84451357
+这个文章对mybatis利用jdk动态代理有介绍，但是具体还是要参照源码。对sqlsession动态代理。
 
 ![Image text](https://raw.githubusercontent.com/eatyu/javaMybatis/master/core/src/img/11182357_N86c.jpg)
 
@@ -9,6 +10,18 @@
 
 ![Image text](https://raw.githubusercontent.com/eatyu/javaMybatis/master/core/src/img/1352849-20180729204649421-1202779896.png)
 这个是mybatis配置流程图
+
+
+整个代理对象生成过程可以用如下时序图表示  
+![Image text](https://raw.githubusercontent.com/eatyu/javaMybatis/master/core/src/img/1352849-20180729204649421-1202779896.png)
+
+查询阶段的时序图  
+![Image text](https://raw.githubusercontent.com/eatyu/javaMybatis/master/core/src/img/1352849-20180729204649421-1202779896.png)
+
+
+
+
+
 
 我们要构建一个sqlsession的时候会使用 SqlSessionFactoryBuilder 这个类，通过传递一个抽象的Reader对象(是不是很眼熟？这玩意就是IO流里的字节流基类), 通过这个玩意传一个xml文件进来  
 然后去构建一个SqlSessionFactory对象。  
