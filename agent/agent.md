@@ -12,7 +12,7 @@
 
 举个例子来说明代理的作用:假设我们想邀请一位明星,那么并不是直接连接明星,而是联系明星的经纪人,来达到同样的目的.明星就是一个目标对象,他只要负责活动中的节目,而其他琐碎的事情就交给他的代理人(经纪人)来解决.这就是代理思想在现实中的一个例子
 
-![Image text](https://raw.githubusercontent.com/eatyu/javaMybatis/master/agent/src/main/790334-20170116124522880-1137330008.png)
+![Image text](https://raw.githubusercontent.com/eatyu/javaMybatis/master/agent/src/img/790334-20170116124522880-1137330008.png)
 
 
 ##1.1.静态代理
