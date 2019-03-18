@@ -31,6 +31,7 @@ public class ProxyFactory implements MethodInterceptor{
 
     }
 
+    @Override
     public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable {
         System.out.println("开始事务...");
 

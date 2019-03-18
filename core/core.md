@@ -29,3 +29,9 @@
 更多的是看源码了，这里不多bb了，下面贴一段源码里比较骚气的代码，这里的mybatis的版本是3.4.6  
 ![Image text](https://raw.githubusercontent.com/eatyu/javaMybatis/master/core/src/img/mybatisversion.png)
 ![Image text](https://raw.githubusercontent.com/eatyu/javaMybatis/master/core/src/img/mybatis%E9%AA%9A%E6%B0%94%E4%BB%A3%E7%A0%81.png)
+
+
+
+
+总结一些东西：
+1，sqlsession是有MapperProxy代理创建的，代理执行invoke()，产生sqlsession，然后Excutor。
