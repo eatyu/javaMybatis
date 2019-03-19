@@ -6,12 +6,16 @@ import org.apache.ibatis.session.ResultHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.sql.Connection;
 import java.sql.Statement;
 import java.util.Properties;
 
 /**
  * 实现mybatis log拦截器
+ * 打印sql执行的时间
+ *
+ *
+ *
+ *
  * // 3.40之后的写法 多了一个Integer.class的参数
  *
  *
@@ -32,7 +36,7 @@ public class LogInterceptor implements Interceptor {
         try {
             return invocation.proceed();
         } finally {
-            logger.info("   duration time = {}ms",System.currentTimeMillis() - start);
+            logger.info("Operation duration time = {}ms",System.currentTimeMillis() - start);
         }
 
     }
