@@ -2,11 +2,11 @@
 #当前项目部署的端口
 
 server:
-  port: 8080
+  port: 8081
 #当前项目名字
 spring:
   application:
-    name: jmybatis-core
+    name: jmybatis-helper
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driverClassName: com.mysql.cj.jdbc.Driver
