@@ -1,5 +1,6 @@
 package com.jmybatis.core.controller;
 
+import com.jmybatis.core.entity.User;
 import com.jmybatis.core.service.OneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,6 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
+import java.util.logging.Logger;
 
 @RestController
 public class Controller {
@@ -19,6 +22,17 @@ public class Controller {
     public String e() {
         String name = oneService.getOneUser().getName();
         return "e,server e method,name = " + name;
+    }
+
+    @GetMapping("/alle")
+    public String alle(){
+        List<User> allUser = oneService.getAllUser();
+        if (allUser==null) {
+            System.out.println("orz");
+        } else {
+            System.out.println(allUser.size());
+        }
+        return "ok";
     }
 
     /**

@@ -7,6 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class OneService {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -19,5 +21,10 @@ public class OneService {
         logger.info("%%%  getOneUser service");
         return userMapper.selectOne(1);
     }
+
+    public List<User> getAllUser() {
+        return userMapper.selectAll();
+    }
+
 
 }
