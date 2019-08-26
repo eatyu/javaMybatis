@@ -49,6 +49,12 @@ public class App {
         System.out.println(target.getClass());
 
         // 给目标对象，创建代理对象
+        /*
+            生成一个target的动态代理，转换为接口的类型，才可以使用
+            生成的代理类型不能转换为原始类类型
+            会报
+            java.lang.ClassCastException: com.sun.proxy.$Proxy1 cannot be cast to com.jmybatis.agent.staticproxy.UserDao2
+         */
         UserDao2 proxy = (UserDao2) new ProxyFactory(target).getProxyInstance();
         // class com.sun.proxy.$Proxy0   内存中动态生成的代理对象
         System.out.println(proxy.getClass());
@@ -67,7 +73,12 @@ public class App {
         // 【原始的类型 class com.jmybatis.agent.staticproxy.UserDao】
         System.out.println(target.getClass());
 
-        // 给目标对象，创建代理对象
+        /*
+            生成一个target的动态代理，转换为接口的类型，才可以使用
+            生成的代理类型不能转换为原始类类型
+            会报
+            java.lang.ClassCastException: com.sun.proxy.$Proxy1 cannot be cast to com.jmybatis.agent.staticproxy.UserDao2
+         */
         IUserDao proxy = (IUserDao) new ProxyFactory(target).getProxyInstance();
         // class com.sun.proxy.$Proxy0   内存中动态生成的代理对象
         System.out.println(proxy.getClass());
