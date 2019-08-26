@@ -60,5 +60,6 @@ static Object newProxyInstance(ClassLoader loader, Class<?>[] interfaces,Invocat
   >2.引入功能包后,就可以在内存中动态构建子类  
   >3.代理的类不能为final,否则报错  
   >4.目标对象的方法如果为final/static,那么就不会被拦截,即不会执行目标对象额外的业务方法.  
+  >5.cglib代理是实现子类的方式实现代理，所以不能继承final类及final方法
   
   >示例代码 在cglibproxy包内  
